@@ -1,0 +1,853 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    * {
+        margin: 0;
+        box-sizing: border-box;
+        text-decoration: none;
+        scrollbar-width: thin;
+
+    }
+
+    html {
+        scroll-behavior: smooth;
+    }
+
+    ::-webkit-scrollbar {
+        width: 10px;
+    }
+
+
+    ::-webkit-scrollbar-track {
+        background: #111;
+    }
+
+    ::-webkit-scrollbar-thumb {
+
+        background: #c28651;
+
+        border-radius: 10px;
+
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+
+        background: #cf630b;
+
+    }
+
+    header {
+        display: flex;
+        padding: 8px;
+        align-items: center;
+        justify-content: space-between;
+        background: rgba(255, 255, 255, 0.15);
+        backdrop-filter: blur(10px);
+        border: bottom left radius 10px;
+        ;
+        height: 11vh;
+        font-family: serif;
+        box-shadow: 1px 1px 20px 1px;
+        position: fixed;
+        top: 0;
+        z-index: 1000;
+        left: 0;
+        width: 100%;
+    }
+
+    .link {
+        display: flex;
+        gap: 100px;
+
+
+
+    }
+
+    .link a {
+        color: rgba(54, 139, 224, 0.479);
+        font-size: larger;
+        font-weight: 500;
+        transition: 0.7s;
+        text-transform: capitalize;
+
+    }
+
+    .link a:hover {
+        color: rgb(35, 131, 216);
+
+    }
+
+    .logo {
+        text-transform: capitalize;
+        font-weight: 700;
+      
+        letter-spacing: 1px;
+      font-size:38px;
+color:#C28651;
+        border-right: 2px solid rgba(0, 0, 0, 0.253);
+        padding-right: 10px;
+
+    }
+
+    .oo {
+        font-size: xx-large;
+        color: rgb(14, 138, 209);
+    }
+
+    .under⌵ {
+        color: rgba(141, 36, 36, 0.562);
+        font-weight: 900;
+        transition: 0.7s;
+    }
+
+    .under⌵:hover {
+        color: red;
+
+    }
+
+    .CTA {
+        padding-right: 30px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 20px;
+    }
+
+    .CTA button {
+
+        background-color: transparent;
+        border-radius: 60%;
+        border-color: rgba(247, 16, 16, 0.404);
+        padding: 5px;
+        transition: 0.7s;
+        cursor: pointer;
+        font-size: small;
+        color: rgb(15, 85, 143);
+        font-weight: 700;
+        box-shadow: 1px 1px 6px 0.8px;
+        transition: 0.9s;
+    }
+
+    
+
+    .CTA img {
+        width: 35px;
+        height: 35px;
+        cursor: pointer;
+        transition: 0.7s;
+        object-fit: cover;
+    }
+.profile-pic{
+        border-radius: 50%;
+
+}
+    .profile-pic:hover {
+
+        transform: scale(1.1);
+        box-shadow: 1px 1px 20px 4px rgba(0, 0, 0, 0.555);
+
+    }
+.shopping-cart:hover{
+        
+        transform: scale(1.1)
+ translateX(5px);
+}
+
+    main {
+        display: flex;
+        flex-direction: column;
+    }
+
+    section {
+        background-image: url(pic/background-test1.jpg);
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+        height: 120vh;
+        display: flex;
+        justify-content: center;
+        align-items: flex-end;
+        flex-direction: column;
+        padding-top: 160px;
+    }
+
+    .hero-content {
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        flex-direction: column;
+        width: 25%;
+        height: 100px;
+        margin-right: 320px;
+        margin-top: 150px;
+    }
+
+    .hero-text {
+        color: white;
+        padding-bottom: 4px;
+        min-height: 300px;
+        font-size: 30px;
+
+    }
+
+    .hero-text h1,
+    .hero-text h2 {
+        padding-bottom: 20px;
+
+    }
+
+    .hero-text h1 {
+        color: rgb(201, 47, 47);
+    }
+
+    .hero-text h2 {
+        color: rgb(15, 175, 196);
+        font-size: 35px;
+        color: rgb(249, 253, 255);
+        font-weight: 200;
+        max-width: 360px;
+    }
+
+    .book-oo {
+        font-size: 65px;
+
+    }
+
+    .btn-coll {
+        padding-top: 20px;
+        padding-right: 180px;
+        display: flex;
+        gap: 30px;
+        width: 400px;
+    }
+
+    .ExploreCollection {
+        background: #c28651;
+        padding: 10px;
+        color: rgb(255, 255, 255);
+        border-radius: 4px;
+        transition: 0.7s;
+        width: 180px;
+        cursor: pointer;
+        font-weight: 700;
+    }
+
+    .Best-Sellers {
+        background-color: transparent;
+        padding: 10px;
+        color: rgb(255, 255, 255);
+        border-radius: 4px;
+        transition: 0.7s;
+        width: 180px;
+        cursor: pointer;
+        font-weight: 700;
+
+    }
+
+    .ExploreCollection:hover {
+
+        transform: translateY(-3px);
+
+        background: #cf630b;
+
+    }
+
+    .Best-Sellers:hover {
+
+        background: rgba(255, 255, 255, .15);
+
+        backdrop-filter: blur(10px);
+
+        transform: translateY(-3px);
+
+    }
+
+    article {
+        height: 100%;
+        padding-top: 120px;
+        display: flex;
+        flex-direction: column;
+        background-image: url(pic/background-test2.jpg);
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        border-top:
+            30px solid rgba(0, 0, 0, 0.89);
+    }
+
+    .cards-container {
+        display: grid;
+
+        grid-template-columns:
+            repeat(auto-fit,
+                minmax(350px, 1fr));
+
+        gap: 40px;
+
+        padding: 60px;
+
+        justify-items: center;
+    }
+
+    .card {
+
+        width: 290px;
+
+        min-height: 450px;
+
+        border-radius: 14px;
+
+        overflow: hidden;
+
+        background: #fff;
+
+        box-shadow:
+            0 10px 30px rgba(0, 0, 0, .08);
+
+        transition: 0.6s;
+
+    }
+
+    .card:hover {
+
+        transform:
+            translateY(-5px)
+    }
+
+    .card img {
+
+        width: 100%;
+
+        height: 350px;
+
+        object-fit: cover;
+
+    }
+
+    figcaption {
+
+        padding: 20px;
+
+        display: flex;
+
+        flex-direction: column;
+
+        gap: 15px;
+
+    }
+
+    .buy-now {
+
+        margin-top: 10px;
+
+        padding: 10px;
+
+        border: none;
+
+        background: #c28651;
+
+        color: white;
+
+        cursor: pointer;
+
+        transition: 0.9s;
+    }
+
+    .buy-now:hover {
+        transform: scale(1.1);
+        color: black;
+        background: #e2710f;
+
+    }
+
+    .content-text h1,
+    .content-text p {
+        color: rgb(255, 246, 246);
+        padding-left: 100px;
+        font-size: 60px;
+        background-color: #e46c0a77;
+        width: 1000px;
+    }
+
+    .book-price {
+        margin-top: auto;
+        color: rgb(26, 161, 26);
+        font-size: 20px;
+    }footer{
+
+background:#141414;
+
+color:#F8F5F0;
+height: auto;
+padding:80px;
+
+}
+
+.footer-content{
+
+display:flex;
+
+justify-content:
+space-between;
+
+align-items:center;
+
+}
+
+.footer-logo h2{
+
+font-size:45px;
+
+color:#C28651;
+
+}
+
+.footer-logo p{
+
+margin-top:20px;
+
+max-width:250px;
+
+color:#B9B9B9;
+
+}
+
+.footer-links{
+
+display:flex;
+
+gap:40px;
+
+}
+
+.footer-links a{
+
+color:#F8F5F0;
+
+transition:.5s;
+
+}
+
+.footer-links a:hover{
+
+color:#C28651;
+
+}
+
+.footer-social{
+
+display:flex;
+
+gap:20px;
+
+}
+
+.footer-social img{
+
+width:40px;
+
+cursor:pointer;
+border-radius:  100px ;
+transition:.5s;
+
+}
+
+.footer-social img:hover{
+
+transform:translateY(-5px);
+box-shadow: 1px 1px 10px 1px ;
+
+
+}
+
+.footer-bottom{
+
+margin-top:60px;
+
+padding-top:30px;
+
+border-top:
+1px solid
+rgba(255, 255, 255, 0.1);
+
+display:flex;
+
+justify-content:
+space-between;
+
+color:#cf2c2c;
+
+} @media(max-width:768px){
+
+/* NAVBAR */
+
+.link{
+display:none;
+}
+
+header{
+padding:10px 20px;
+height:80px;
+}
+
+.logo{
+font-size:30px;
+}
+
+/* HERO */
+
+section{
+
+height:100vh;
+
+padding-top:0;
+
+align-items:center;
+
+}
+
+.hero-content{
+
+width:90%;
+
+margin:0;
+
+height:auto;
+
+align-items:flex-start;
+
+}
+
+.hero-text{
+
+min-height:auto;
+
+font-size:20px;
+
+}
+
+.hero-text h1{
+
+font-size:55px;
+
+}
+
+.hero-text h2{
+
+font-size:26px;
+
+max-width:100%;
+
+}
+
+/* BUTTONS */
+
+.btn-coll{
+
+padding-right:0;
+
+width:100%;
+
+display:flex;
+
+flex-direction:column;
+
+}
+
+.ExploreCollection,
+.Best-Sellers{
+
+width:220px;
+
+}
+
+/* ARTICLE TITLE */
+.content-text h1,
+.content-text p{
+width:100%;
+padding-left:20px;
+font-size:35px;
+}
+
+/* GRID */
+.cards-container{
+padding:20px;
+grid-template-columns:1fr;
+}
+
+.card{
+width:100%;
+max-width:320px;
+}
+
+/* FOOTER */
+.footer-content{
+flex-direction:column;
+gap:40px;
+align-items:flex-start;
+}
+
+.footer-bottom{
+flex-direction:column;
+
+}
+
+}
+</style>
+
+
+<body>
+    <header>
+        <div class="logo"> paperl<span class="oo">oo</span>p</div>
+        <nav>
+            <div class="link">
+                <a href="index.html">Explore <span class="under⌵">⌵</span></a>
+                <a href="##">Categories <span class="under⌵">⌵</span></a>
+                <a href="##"> about <span class="under⌵">⌵</span> </a>
+            </div>
+        </nav>
+        <div class="CTA">
+            <img src="pic/profile-pic.jpg" alt="my profile" class="profile-pic">
+          <img src="pic/shopping-cart.png" alt="shopping-cart" class="shopping-cart">
+
+
+        </div>
+
+
+    </header>
+
+    <main>
+
+        <section>
+
+
+            <div class="hero-content">
+
+                <div class="hero-text">
+                    <h1> Your
+                        Next Favorite B<span class="oo book-oo">oo</span>k
+                    </h1>
+                    <h2>
+                        Explore new stories, ideas,
+                        and worlds waiting for you.
+                    </h2>
+                </div>
+                <div class="btn-coll">
+                    <a href="#featured-books" class="ExploreCollection">
+
+                        Explore Collection
+
+                    </a>
+                    <button class="Best-Sellers">Best Sellers</button>
+                </div>
+            </div>
+
+
+
+            </div>
+
+
+
+
+        </section>
+
+        <article id="featured-books">
+            <div class="content-text">
+
+                <h1>Featured Books</h1>
+
+                <p>
+                    Discover books selected for you
+                </p>
+            </div>
+            <div class="cards-container">
+                <figure class="card card1">
+                    <img src="pic/book1.webp" alt="the kite runner">
+
+                    <figcaption>
+
+                        <h2>The Kite Runner</h2>
+
+                        <p>Some memories never disappear. A deeply emotional story about friendship, distance, and the
+                            moments that stay long after everything changes</p>
+                        <span class="book-price">15 JOD</span>
+                        <button class="buy-now"> buy now </button>
+
+                    </figcaption>
+
+                </figure>
+                <figure class="card card2">
+                    <img src="pic/book2.jpg" alt="The Butcher">
+
+                    <figcaption>
+                        <h2>The Butcher</h2>
+
+                        <p>Every answer uncovers another question. A tense and mysterious experience where shadows,
+                            choices, and secrets refuse to stay hidden.</p>
+                        <span class="book-price">5 JOD</span>
+
+                        <button class="buy-now"> buy now </button>
+
+
+                    </figcaption>
+
+                </figure>
+                <figure class="card card3">
+                    <img src="pic/book3.webp" alt="Rich Dad Poor Dad">
+
+                    <figcaption>
+
+                        <h2>Rich Dad Poor Dad</h2>
+
+                        <p>What if everything you learned about money was only part of the story? A book that challenges
+                            familiar ideas and opens the door to a different way of thinking.</p>
+                        <span class="book-price">12 JOD</span>
+                        <button class="buy-now"> buy now </button>
+
+
+                    </figcaption>
+
+                </figure>
+                <figure class="card card4">
+                    <img src="pic/book4.jpg" alt="Al Jawābul kāfi liman sa'ala 'an Dawā'i Shaafi">
+
+                    <figcaption>
+
+                        <h2>Al Jawābul kāfi liman sa'ala 'an Dawā'i Shaafi</h2>
+
+                        <p>Not every battle happens in the outside world. Some begin quietly within. A reflective
+                            journey through choices, habits, and the unseen struggles that shape who we become.</p>
+                        <span class="book-price">15 JOD</span>
+                        <button class="buy-now"> buy now </button>
+
+
+                    </figcaption>
+
+                </figure>
+                <figure class="card card5">
+                    <img src="pic/book5.jpg" alt="The Richest Man in Babylon">
+
+                    <figcaption>
+
+                        <h2>The Richest Man in Babylon</h2>
+
+                        <p>Long before modern wealth, simple lessons shaped extraordinary outcomes. A timeless journey
+                            into decisions that can change everything.</p>
+                        <span class="book-price">10 JOD</span>
+                        <button class="buy-now"> buy now </button>
+
+
+                    </figcaption>
+                </figure>
+                <figure class="card card6">
+                    <img src="pic/book6.webp" alt="The Thorn and the Carnation">
+
+                    <figcaption>
+
+                        <h2>The Thorn and the Carnation</h2>
+
+                        <p>Between hope and hardship, every step leaves a mark. A story of change, resilience, and
+                            moments that force people to choose who they truly are.</p>
+                        <span class="book-price">20 JOD</span>
+                        <button class="buy-now"> buy now </button>
+
+
+                    </figcaption>
+                </figure>
+                <figure class="card card7">
+                    <img src="pic/book7.jpg" alt="My Father, Whom I Hate">
+                    <figcaption>
+                        <h2>My Father, Whom I Hate</h2>
+                        <p>Behind every memory lies a feeling never spoken aloud. A deeply emotional story that explores
+                            family, distance, and the difficult emotions hidden between silence and connection. </p>
+
+                        <span class="book-price">10 JOD</span>
+                        <button class="buy-now"> buy now </button>
+                    </figcaption>
+                </figure>
+                <figure class="card card8">
+                    <img src="pic/book8.jpg" alt="Dialogue with My Atheist Friend">
+                    <figcaption>
+                        <h2>Dialogue with My Atheist Friend</h2>
+                        <p>A thoughtful conversation built around questions, beliefs, and reflection. A journey through
+                            ideas that invites readers to think beyond simple answers.
+
+                        </p>
+
+                        <span class="book-price">7 JOD</span>
+                        <button class="buy-now"> buy now </button>
+                    </figcaption>
+                </figure>
+            </div>
+        </article>
+
+
+
+
+
+
+
+
+
+
+
+    </main>
+<footer>
+
+<div class="footer-content">
+
+<div class="footer-logo">
+
+<h2>PaperLoop</h2>
+
+<p>
+Where stories begin
+and pages never end.
+</p>
+
+</div>
+
+<div class="footer-links">
+
+<a href="#">Explore</a>
+
+<a href="#">Categories</a>
+
+<a href="#">About</a>
+
+</div>
+
+<div class="footer-social">
+
+<img src="pic/instagram.png">
+
+<img src="pic/face-book.png">
+
+<img src="pic/map.png">
+
+</div>
+
+</div>
+
+<div class="footer-bottom">
+
+<p>
+Read. Think. Repeat.
+</p>
+
+<p>
+© 2026 PaperLoop
+</p>
+
+</div>
+
+</footer>
+</body>
+
+</html>
